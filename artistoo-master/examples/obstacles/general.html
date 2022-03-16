@@ -34,7 +34,7 @@ conf : {
     // Basic CPM parameters
     torus : [true,true],				// Should the grid have linked borders?
     seed : 3,							// Seed for random number generation.
-    T : 30,								// CPM temperature
+    T : 40,								// CPM temperature
     
     // Constraint parameters. 
     // Mostly these have the format of an array in which each element specifies the
@@ -51,7 +51,7 @@ conf : {
     V : [0,100,600],					// Target volume of each cellkind
     
     // PerimeterConstraint parameters
-    LAMBDA_P : [0,5,1],				// PerimeterConstraint importance per cellkind
+    LAMBDA_P : [0,5,2],				// PerimeterConstraint importance per cellkind
     P : [0,0,300],					// Target perimeter of each cellkind
     
     // ActivityConstraint parameters
@@ -124,8 +124,8 @@ function initializeGrid(){
 	// add the initializer if not already there
 	if( !this.helpClasses["gm"] ){ this.addGridManipulator() }
 
-	// Seed epidermal cell layer
-	let step = 24
+	// Obstacles cell layer
+	let step = 33
 	for( var i = 1 ; i < this.C.extents[0] ; i += step ){
 		for( var j = 1 ; j < this.C.extents[1] ; j += step ){
 			this.gm.seedCellAt( 1, [i,j] )
